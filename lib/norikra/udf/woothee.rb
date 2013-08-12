@@ -6,7 +6,7 @@ require 'norikra/udf'
 module Norikra
   module UDF
     # class style
-    class WootheeParseAgent < Norikra::UDF::Base
+    class WootheeParseAgent < Norikra::UDF::SingleRow
       def self.init
         require 'woothee.jar'
         require 'norikra-udf-woothee.jar'
@@ -34,42 +34,42 @@ module Norikra
         [IsPC, IsSmartPhone, IsMobilePhone, IsAppliance, IsMisc, IsCrawler, IsUnknown, IsIn]
       end
 
-      class IsPC < Norikra::UDF::Base
+      class IsPC < Norikra::UDF::SingleRow
         def definition
           ["isPC", "is.tagomor.norikra.udf.Woothee", "isPC"]
         end
       end
-      class IsSmartPhone < Norikra::UDF::Base
+      class IsSmartPhone < Norikra::UDF::SingleRow
         def definition
           ["isSmartPhone", "is.tagomor.norikra.udf.Woothee", "isSmartPhone"]
         end
       end
-      class IsMobilePhone < Norikra::UDF::Base
+      class IsMobilePhone < Norikra::UDF::SingleRow
         def definition
           ["isMobilePhone", "is.tagomor.norikra.udf.Woothee", "isMobilePhone"]
         end
       end
-      class IsAppliance < Norikra::UDF::Base
+      class IsAppliance < Norikra::UDF::SingleRow
         def definition
           ["isAppliance", "is.tagomor.norikra.udf.Woothee", "isAppliance"]
         end
       end
-      class IsMisc < Norikra::UDF::Base
+      class IsMisc < Norikra::UDF::SingleRow
         def definition
           ["isMisc", "is.tagomor.norikra.udf.Woothee", "isMisc"]
         end
       end
-      class IsCrawler < Norikra::UDF::Base
+      class IsCrawler < Norikra::UDF::SingleRow
         def definition
           ["isCrawler", "is.tagomor.norikra.udf.Woothee", "isCrawler"]
         end
       end
-      class IsUnknown < Norikra::UDF::Base
+      class IsUnknown < Norikra::UDF::SingleRow
         def definition
           ["isUnknown", "is.tagomor.norikra.udf.Woothee", "isUnknown"]
         end
       end
-      class IsIn < Norikra::UDF::Base
+      class IsIn < Norikra::UDF::SingleRow
         def definition
           ["isIn", "is.tagomor.norikra.udf.Woothee", "isIn"]
         end
