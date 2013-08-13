@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["tagomoris@gmail.com"]
   spec.description   = %q{Woothee UDF for Norikra}
   spec.summary       = %q{Norikra UDF to parse User-Agent}
-  spec.homepage      = "https://github.com/tagomoris/norikra-plugin-woothee"
+  spec.homepage      = "https://github.com/tagomoris/norikra-udf-woothee"
   spec.license       = "GPLv2"
   spec.platform      = "java" #Gem::Platform::JAVA
 
