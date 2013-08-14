@@ -7,11 +7,16 @@ RSpec::Core::RakeTask.new(:spec) do |t|
 end
 
 task :compile do
-  jarname = "norikra-udf-woothee.jar"
-  SRC = FileList['java/**/*.java']
-  CLASSPATH = FileList['jar/**/*.jar'].select{|f| not f.end_with?('/' + jarname)}.join(':')
-  SRC.each do |fn|
-    sh "env LC_ALL=C javac -classpath #{CLASSPATH} #{fn}"
+  require 'rubygems'
+
+  jarname = FileList['norikra-udf-*.gemspec'].first.gsub(/\.gemspec$/, '.jar')
+
+  jarfiles = FileList['jar/**/*.jar'].select{|f| not f.end_with?('/' + jarname)}
+  jarfiles << Gem.find_files('esper-*.jar').first
+  classpath = "-classpath java:#{jarfiles.join(':')}"
+
+  FileList['java/**/*.java'].each do |fn|
+    sh "env LC_ALL=C javac #{classpath} #{fn}"
   end
   sh "env LC_ALL=C jar -cf jar/#{jarname} -C java ."
 end
